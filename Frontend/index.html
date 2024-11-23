@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+<script src="dynamicContent.js"></script>
+  <div class="main-divider">
+    <div class="sidebar">
+      <h2>History</h2>
+    </div>
+    <div class="main-content">
+      <div class="navbar">
+        <button class="dropdown-button" onclick="onSelectionMenuClick()">Select Model</button>
+      </div>
+      <div class="selection-menu" id="selection-menu">
+        <form onsubmit="onSelectionMenuSubmit(event)">
+          <div class="button-bar">
+            <button class="cancel" id="selection-menu-close">x</button>
+          </div>
+          <label>
+            <input placeholder="local llm address..." id="selection-menu-modeladdress">
+          </label>
+          <label>
+            <input placeholder="model name" id="selection-menu-modelname">
+          </label>
+          <label class="note">Please make sure that the model is installed</label>
+          <div class="button-bar">
+            <button class="reset" type="reset">Reset</button>
+            <button class="submit" type="submit">Save</button>
+          </div>
+        </form>
+      </div>
+      <div class="home" id="home">
+        <h1>What's up?</h1>
+        <div class="prompt-bar" id="prompt-bar">
+          <form onsubmit="onFirstInputSubmit(event)">
+            <label>
+              <textarea draggable="false" class="prompt-input" id="home-prompt-input" placeholder="ask me anything..."> </textarea>
+            </label>
+            <button type="submit">UwU Button</button>
+          </form>
+        </div>
+      </div>
+      <div class="conversation" id="conv">
+        <div class="chat" id="conv-chat">
+        </div>
+          <div class="prompt-bar" id="conv-prompt-bar">
+            <form onsubmit="onInputSubmit(event)">
+              <label for="conv-prompt-input"></label>
+              <textarea draggable="false" class="prompt-input" id="conv-prompt-input" placeholder="ask me anything..."></textarea>
+              <button type="submit">UwU</button>
+            </form>
+          </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

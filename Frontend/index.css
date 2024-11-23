@@ -1,0 +1,230 @@
+/*----- Page Layout -----*/
+body {
+    background: #151515;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.main-divider{
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    color: white;
+    scroll-behavior: smooth;
+}
+
+/*----- Sidebar -----*/
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 2px;
+    background: #121212;
+    width: 15%;
+    height: 100%;
+    border-right: 1px solid #8E24AA;
+}
+
+/*----- Main Content -----*/
+.main-content{
+    background: #151515;
+    width: 100%;
+    height: 100%;
+    color: white;
+    overflow-scrolling: auto;
+    scroll-behavior: smooth;
+}
+
+/*----- Navbar -----*/
+.navbar{
+    height: 10%;
+    display: flex;
+    color: white;
+}
+.navbar .dropdown-button {
+    margin: 10px;
+    background: transparent;
+    border-radius: 5px;
+    border: 2px solid #8E24AA;
+    color: white;
+}
+
+/*----- Model Selection -----*/
+.selection-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    max-width: 15%;
+    position: absolute;
+    background: #121212;
+    color: white;
+    margin-left: 10px;
+    margin-top: 0;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #8E24AA;
+    z-index: 99;
+}
+
+.selection-menu form {
+    max-width: 100%;
+}
+
+.selection-menu button{
+    margin: 10px;
+    background: transparent;
+    border-radius: 5px;
+    border: 2px solid #8E24AA;
+    color: white;
+}
+
+.selection-menu .button-bar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.selection-menu input{
+    width: 93%;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 5px;
+    background: #1C1C1C;
+    color: white;
+    padding: 2px;
+    word-break: break-all;
+}
+
+.selection-menu input:focus{
+    outline: none;
+}
+
+.selection-menu .note{
+    font-size: 65%;
+    outline: none;
+    margin: 5px;
+    word-break: break-word;
+}
+
+.selection-menu .button-bar .cancel{
+    margin-right: 5%;
+    margin-left: auto;
+}
+
+.selection-menu .button-bar .submit{
+    margin-right: 5%;
+}
+
+.selection-menu .button-bar .reset{
+    margin-right: 0;
+    margin-left: auto;
+}
+
+/*----- Homepage -----*/
+.main-content .home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15%;
+    height: 80vh;
+    max-height: 80vh;
+    width: 100%;
+    text-align: center;
+    overflow: auto;
+}
+
+.prompt-bar {
+    background: #1C1C1C;
+    width: 75%;
+    border-radius: 5px;
+    padding: 0 20px;
+}
+
+.prompt-bar .button {
+    padding: 20px;
+}
+
+.prompt-input  {
+    width: 100%;
+    color: white;
+    background: #1C1C1C;
+    border: none;
+    resize: none;
+}
+
+.prompt-input:focus{
+    border:none;
+    outline: none;
+}
+
+/*----- Conversation Area -----*/
+.conversation{
+    display: none;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    max-height: 89vh; /* Adjusted to allow for scrollbar */
+    width: 100%;
+    overflow-y: auto; /* Enable vertical scroll */
+    position: relative;
+    gap: 10px;
+}
+
+.conversation .prompt-bar {
+    margin-top: 0;
+    position: sticky;
+    bottom: 0; /* Stick to the bottom */
+    margin-bottom: 5px;
+}
+
+/*----- Chat / Messages -----*/
+.chat {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 100vh;
+    overflow: auto;
+    margin-top: 0;
+    width: 79.5%;
+}
+
+.user-text {
+    color: white;
+    background: #1C1C1C;
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    max-width: 50%;
+}
+
+.model-text {
+    color: white;
+    background: #1C1C1C;
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: auto;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    max-width: 50%;
+}
+
+
+
+/*
+.bgColor-default{
+    background-color: #151515;
+}
+
+.bgColor-light{
+    background-color: #1C1C1C;
+}
+
+.bgColor-dark{
+    background-color: #121212;
+} */
