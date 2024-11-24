@@ -1,5 +1,3 @@
-import LLMHandler from "./LLMHandler"
-
 // Dynamic Text adding
 document.addEventListener("DOMContentLoaded", () => {
     // Clear the input field on page load
@@ -9,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (homeInputBar) homeInputBar.value = "";
     if (promptInput) promptInput.value = "";
 });
-
+//======== INPUT ACTION ========//
 function onFirstInputSubmit(event) {
     event.preventDefault();
     // fetch html elements
@@ -77,6 +75,7 @@ function addNewMessage(container, message, type){
     container.insertBefore(newMessage, container.firstChild);
 }
 
+//======== INPUT MODEL ACTION ========//
 // fetch the answer from the current model
 async function fetchAnswer(url, userMessage) {
     try {
@@ -99,6 +98,8 @@ async function fetchAnswer(url, userMessage) {
     }
 }
 
+//======== SELECTION MENU ========//
+
 function onSelectionMenuClick(){
     const selectionMenu = document.getElementById("selection-menu");
 
@@ -118,6 +119,9 @@ async function onSelectionMenuSubmit(event) {
     const modelNameInput = document.getElementById("selection-menu-modelname");
     // fetch POST API call
     try {
+        // store the model params in a cookie
+        createLLMCookie(modelAddressInput.value, modelNameInput.value);
+
         const response =
             await fetch(`http://localhost:3001/updateLLM?modellAdress=${encodeURIComponent(modelAddressInput.value)}&modelName=${encodeURIComponent(modelNameInput.value)}`, {
                 method: 'POST',
@@ -140,6 +144,17 @@ async function onSelectionMenuSubmit(event) {
 function closeSelectionMenu(event){
     event.preventDefault();
     document.getElementById("selection-menu").style.display = 'none';
+    readLLMCookie();
+}
+
+//======== COOKIE HANDLING ========//
+function createLLMCookie(modelAddress, modelName){
+    document.cookie = "modelAddress=" + modelAddress + "; Path=/; SameSite=Lax; Secure;";
+    document.cookie = "modelName=" + modelName + "; Path=/; SameSite=Lax; Secure;";
+}
+
+function readLLMCookie(){
+    console.log(document.cookie.toString());
 }
 
 
