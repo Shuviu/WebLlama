@@ -1,3 +1,5 @@
+import LLMHandler from "./LLMHandler"
+
 // Dynamic Text adding
 document.addEventListener("DOMContentLoaded", () => {
     // Clear the input field on page load
@@ -93,8 +95,7 @@ async function fetchAnswer(url, userMessage) {
 
     }catch (error) {
         // catch and log error
-        console.log('Error fetching API:', error);
-        return "ALTER: Backend Server could not be reached.";
+        return "ALERT: Backend Server could not be reached.";
     }
 }
 
@@ -121,15 +122,24 @@ async function onSelectionMenuSubmit(event) {
             await fetch(`http://localhost:3001/updateLLM?modellAdress=${encodeURIComponent(modelAddressInput.value)}&modelName=${encodeURIComponent(modelNameInput.value)}`, {
                 method: 'POST',
             })
-        console.log(response.status);
+
         // handle error owo
         if (response.status !== 200) {
             console.log("Failed to save the parameters");
+            alert("Could not save the model parameters");
         }
     } catch (error) {
         // catch and log error
-        console.log("caught the error");
+        console.log("Backend cant be reached");
+        alert("Could not reach the backend server. Make sure it is running.")
     }
+
+    document.getElementById("selection-menu").style.display = 'none';
+}
+
+function closeSelectionMenu(event){
+    event.preventDefault();
+    document.getElementById("selection-menu").style.display = 'none';
 }
 
 

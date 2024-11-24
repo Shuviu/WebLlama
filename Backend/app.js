@@ -16,9 +16,12 @@ app.get('/', async (req, res) => {
         const userMessage = req.query.message;
         const response = await llmHandler.generateAnswer(userMessage);
 
-        res.status(400)
-
-        res.send(response.content);
+        if (response){
+            res.status(200).send(response);
+        }
+        else{
+            res.status(400).send()
+        }
     }catch (error){
         console.log(error)
         res.status(400).send(error.message);
@@ -35,6 +38,7 @@ app.post('/updateLLM', async (req, res) => {
         llmHandler.updateCredentials(modelAddress, modelName);
         res.status(200).send();
     }catch(e){
+        res.status(400).send();
         console.error(e);
     }
 })
